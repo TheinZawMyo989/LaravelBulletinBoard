@@ -19,8 +19,6 @@
             {{ session('status') }}
           </div>
           @endif
-
-
           <div class="newslist">
             <table class="table">
               <thead>

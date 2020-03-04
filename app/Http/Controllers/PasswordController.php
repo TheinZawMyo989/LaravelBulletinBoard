@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Rules\MatchOldPassword;
 use App\User;
 use Illuminate\Http\Request;
+use App\Contracts\Services\NewsServiceInterface;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 
 class PasswordController extends Controller
 {
+    private $newsService;
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(NewsServiceInterface $newsService)
     {
         $this->middleware('auth');
+        $this->newsService = $newsService;
     }
 
     /**
@@ -44,8 +47,8 @@ class PasswordController extends Controller
         if (!$validator) {
             return back()->withErrors($validator)->withInput();
         }
-        $change = User::find(auth()->user()->id)
-            ->update(['password' => Hash::make($request->new_password)]);
+
+        $change = $this->newsService->changePass($request);
 
         if ($change) {
             Auth::logout();

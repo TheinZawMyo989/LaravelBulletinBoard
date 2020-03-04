@@ -9,6 +9,7 @@ interface NewsDaoInterface
     public function getNewsById($id);
     public function updateNews($request,$id);
     public function deleteNews($id);
+    public function changePass($request);
 }
 
 ?>

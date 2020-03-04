@@ -62,9 +62,27 @@ class NewsService implements NewsServiceInterface
         return $this->NewsDao->updateNews($request,$id);
     }
 
+
+    /**
+     * delete news
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function deleteNews($id)
     {
         return $this->NewsDao->deleteNews($id);
+    }
+
+    /**
+     * change pass
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function changePass($request)
+    {
+        return $this->NewsDao->changePass($request);
     }
 
 
