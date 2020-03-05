@@ -26,9 +26,9 @@ class NewsService implements NewsServiceInterface
      * @param Request $request
      * @return void
      */
-    public function createNews($request)
+    public function createNews($request,$insert)
     {
-        return $this->NewsDao->createNews($request);
+        return $this->NewsDao->createNews($request,$insert);
 
     }
 

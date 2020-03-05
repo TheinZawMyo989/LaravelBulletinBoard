@@ -42,7 +42,7 @@
           <div class="card-body d-flex flex-row">
             <i class="fa fa-user-circle-o" style="font-size:36px"> </i>
             <div>
-              <h4 class="card-title font-weight-bold mb-2">&nbsp; {{ $newsList->name }}</h4>
+              <h5 class="card-title font-weight-bold mb-2">&nbsp; {{ $newsList->name }}</h5>
               <p class="card-text">&nbsp;
                 @if($newsList->updated_at)
                 {{ Carbon\Carbon::parse($newsList->updated_at)->diffForHumans() }}
@@ -52,7 +52,10 @@
             </div>
           </div>
           <div class="card-body">
-            <h4>{{ $newsList->title }}</h4>
+            <h5>{{ $newsList->title }}</h5>
+            {{-- <h1>{{ $newsList->image }}</h1> --}}
+            <img src="{{ asset($newsList->image) }}" alt="News Photo" class="images" width="100%" height="200px">
+            <br>
             <p class="collapse" id="collapse{{$newsList->news_id}}">{{ $newsList->content }}</p>
             <a href="#" data-toggle="collapse" data-target="#collapse{{$newsList->news_id}}">Read more..</a>
           </div>

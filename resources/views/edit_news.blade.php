@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header text-lg-center">Upload News</div>
+        <div class="card-header text-lg-center">Update News</div>
 
         <div class="card-body">
           @if (session('status'))
@@ -36,7 +36,7 @@
           <br>
           @endif
           <div class="text-center">
-            {{ Form::submit('Upload..',['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Update..',['class'=>'btn btn-primary']) }}
           </div>
           {{ Form::close() }}
         </div>

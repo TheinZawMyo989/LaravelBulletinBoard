@@ -23,6 +23,7 @@
             <table class="table">
               <thead>
                 <tr>
+                  <th>Photo</th>
                   <th>Title</th>
                   <th>Content</th>
                   <th>Author</th>
@@ -33,6 +34,7 @@
               <tbody>
                 @foreach($allNews as $newslist)
                 <tr>
+                  <td><img src="{{ asset($newslist->image) }}" alt="image" width="100px" height="100px"></td>
                   <td>{{ $newslist->title }}</td>
                   <td>{{ $newslist->content }}</td>
                   <td>{{ $newslist->name }}</td>

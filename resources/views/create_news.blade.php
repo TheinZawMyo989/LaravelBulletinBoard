@@ -13,7 +13,8 @@
             {{ session('status') }}
           </div>
           @endif
-          {{ Form::open(['route'=>'create#news','method'=>'post'])}}
+          {{ Form::open(['route'=>'create#news','method'=>'post','accept-charset'=>'utf-8','enctype'=>'multipart/form-data',
+          'class'=>'uploader','id'=>'file-upload-form'])}}
           <label class="form-label">Title</label>
           <div class="title">
             {{ Form::text('title', null,['class'=>'form-control','placeholder'=>'news title']) }}
@@ -32,6 +33,21 @@
           @else
           <br>
           @endif
+          <div class="image">
+            <input id="file-upload" type="file" name="fileUpload" accept="image/*" onchange="readURL(this);">
+              <label for="file-upload" id="file-drag">
+                  {{-- <img id="file-image" src="#" alt="Preview" class="hidden" width="200px" height="200px"> --}}
+                  <div id="start">
+                    <img id="blah" width="300px" height="150px" />
+                      <div>Select a file here</div>
+                      <div id="notimage" class="hidden">Please select an image</div>
+                      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                      <br>
+                      <span class="text-danger">{{ $errors->first('fileUpload') }}</span>
+                  </div>
+              </label>
+          </div>
+          <hr>
           <div class="text-center">
             {{ Form::submit('Upload..',['class'=>'btn btn-primary']) }}
           </div>
@@ -42,3 +58,16 @@
   </div>
 </div>
 @endsection
+<script>
+  function readURL(input, id) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+ }
+</script> 

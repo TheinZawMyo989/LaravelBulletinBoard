@@ -6,15 +6,18 @@ form-text {
 .fa {
     padding: 5px;
     border-radius: 50%;
+    margin: 2px;
 }
 
 .fa-pencil {
     border: 1px solid blue;
+
 }
 
 .fa-trash {
     border: 1px solid red;
     color: red;
+    
 }
 
 .fa-pencil:hover {
@@ -77,4 +80,62 @@ body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#start,
+#file-drag {
+    width: 100%;
+}
+
+.uploader #start.hidden {
+    display: none;
+}
+
+.uploader #start i.fa {
+    font-size: 50px;
+    margin-bottom: 1rem;
+    transition: all .2s ease-in-out;
+}
+
+.uploader #response {
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.uploader #response.hidden {
+    display: none;
+}
+
+.uploader #response #messages {
+    margin-bottom: .5rem;
+}
+
+.uploader #file-image {
+    display: inline;
+    margin: 0 auto .5rem auto;
+    max-width: 180px;
+}
+
+.uploader #file-image.hidden {
+    display: none;
+}
+
+.uploader #notimage {
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.uploader #notimage.hidden {
+    display: none;
+}
+
+.images {
+    border: 1px solid #cccccc;
 }

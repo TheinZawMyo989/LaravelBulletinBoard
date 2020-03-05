@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Contracts\Services\NewsServiceInterface;
 use Illuminate\Http\Request;
 use Validator;
-
+use Image;
+use Illuminate\Support\Facades\Response;
 class NewsController extends Controller
 {
     private $newsService;
@@ -38,7 +39,16 @@ class NewsController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        $this->newsService->createNews($request);
+        if ($files = $request->file('fileUpload')) {
+            // $data = $request->input('image');
+            $photo = $request->file('fileUpload')->getClientOriginalName();
+            $destination = 'images';
+            $insert = $request->file('fileUpload')->move($destination, $photo);
+         }
+        // $image_file = $request->file('fileUpload');
+        // $image = Image::make($image_file);
+        // Response::make($image->encode('jpeg'));
+        $this->newsService->createNews($request,$insert);
         return redirect()->route('home');
     }
 
@@ -62,14 +72,22 @@ class NewsController extends Controller
      * @return void
      */
     public function updateNews(Request $request,$id){
-        $validator = $this->validateNews($request);
+        
+        $validator = $this->upNews($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
         $this->newsService->updateNews($request,$id);
+        // dd($id);
         return redirect()->route('home');
     }
 
+    /**
+     * delete news
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function deleteNews($id)
     {
         $this->newsService->deleteNews($id);
@@ -83,6 +101,16 @@ class NewsController extends Controller
         $rules = [
             'title' => 'required',
             'content' => 'required',
+            'fileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ];
+        return Validator::make($request->all(), $rules);
+    }
+    public function upNews(Request $request)
+    {
+        $rules = [
+            'title' => 'required',
+            'content' => 'required',
+            // 'fileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
         return Validator::make($request->all(), $rules);
     }

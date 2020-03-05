@@ -13,11 +13,12 @@ class NewsDao implements NewsDaoInterface
      * @param [type] $request
      * @return void
      */
-    public function createNews($request)
+    public function createNews($request,$insert)
     {
         News::insert([
             'title' => $request->title,
             'content' => $request->content,
+            'image' =>$insert,
             'created_at' => date('Y-m-d H:i:s'),
             'user_id' => auth()->user()->id,
         ]);
