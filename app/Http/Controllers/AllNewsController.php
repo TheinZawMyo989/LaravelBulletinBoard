@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Contracts\Services\NewsServiceInterface;
-use Illuminate\Http\Request;
 
 class AllNewsController extends Controller
 {
@@ -17,9 +17,9 @@ class AllNewsController extends Controller
         $this->newsService = $newsService;
     }
 
-
-    public function index(){
+    public function index()
+    {
         $allNews = $this->newsService->getAllNews();
-        return view('welcome',compact('allNews'));
+        return view('welcome', compact('allNews'));
     }
 }

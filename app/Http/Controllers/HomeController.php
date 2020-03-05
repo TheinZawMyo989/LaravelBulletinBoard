@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Contracts\Services\NewsServiceInterface;
 
 class HomeController extends Controller
@@ -28,8 +27,7 @@ class HomeController extends Controller
     public function panel()
     {
         $allNews = $this->newsService->getAllNews();
-        return view('home',compact('allNews'));
+        return view('home', compact('allNews'));
     }
 
-    
 }

@@ -35,17 +35,17 @@
           @endif
           <div class="image">
             <input id="file-upload" type="file" name="fileUpload" accept="image/*" onchange="readURL(this);">
-              <label for="file-upload" id="file-drag">
-                  {{-- <img id="file-image" src="#" alt="Preview" class="hidden" width="200px" height="200px"> --}}
-                  <div id="start">
-                    <img id="blah" width="300px" height="150px" />
-                      <div>Select a file here</div>
-                      <div id="notimage" class="hidden">Please select an image</div>
-                      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-                      <br>
-                      <span class="text-danger">{{ $errors->first('fileUpload') }}</span>
-                  </div>
-              </label>
+            <label for="file-upload" id="file-drag">
+              {{-- <img id="file-image" src="#" alt="Preview" class="hidden" width="200px" height="200px"> --}}
+              <div id="start">
+                <img id="blah" width="300px" height="150px" />
+                <div>Select a file here</div>
+                <div id="notimage" class="hidden">Please select an image</div>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                <br>
+                <span class="text-danger">{{ $errors->first('fileUpload') }}</span>
+              </div>
+            </label>
           </div>
           <hr>
           <div class="text-center">
@@ -70,4 +70,4 @@
     reader.readAsDataURL(input.files[0]);
   }
  }
-</script> 
+</script>

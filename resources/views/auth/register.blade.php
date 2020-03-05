@@ -57,8 +57,7 @@
             </div>
 
             <div class="form-group">
-              <label for="password-confirm"
-                class="form-label text-md-right">{{ __('Confirm Password') }}</label>
+              <label for="password-confirm" class="form-label text-md-right">{{ __('Confirm Password') }}</label>
 
               <div>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required

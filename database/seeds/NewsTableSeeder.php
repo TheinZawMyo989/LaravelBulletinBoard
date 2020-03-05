@@ -15,6 +15,7 @@ class NewsTableSeeder extends Seeder
         [
             'title' => 'Title One',
             'content' => 'Hello World',
+            'image' => null,
             'created_at' => '2020-02-15 16:59:59',
             'updated_at' => null,
             'user_id' => 1
@@ -22,6 +23,7 @@ class NewsTableSeeder extends Seeder
         [
             'title' => 'Title Two',
             'content' => 'Hello World',
+            'image' => null,
             'created_at' => '2020-02-15 16:59:59',
             'updated_at' => null,
             'user_id' => 1
@@ -29,6 +31,7 @@ class NewsTableSeeder extends Seeder
         [
             'title' => 'Title three',
             'content' => 'Hello World',
+            'image' => null,
             'created_at' => '2020-02-15 16:59:59',
             'updated_at' => null,
             'user_id' => 1

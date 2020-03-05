@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Rules\MatchOldPassword;
-use App\User;
-use Illuminate\Http\Request;
 use App\Contracts\Services\NewsServiceInterface;
-use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 use Auth;
+use Illuminate\Http\Request;
 
 class PasswordController extends Controller
 {
