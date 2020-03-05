@@ -49,7 +49,7 @@
           </div>
           <hr>
           <div class="text-center">
-            {{ Form::submit('Upload..',['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Upload..',['class'=>'btn upload-btn']) }}
           </div>
           {{ Form::close() }}
         </div>

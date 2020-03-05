@@ -53,7 +53,6 @@
           </div>
           <div class="card-body">
             <h5>{{ $newsList->title }}</h5>
-            {{-- <h1>{{ $newsList->image }}</h1> --}}
             <img src="{{ asset($newsList->image) }}" alt="News Photo" class="images" width="100%" height="200px">
             <br>
             <p class="collapse" id="collapse{{$newsList->news_id}}">{{ $newsList->content }}</p>

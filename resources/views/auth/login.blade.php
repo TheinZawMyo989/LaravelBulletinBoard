@@ -62,7 +62,7 @@
                 </a>
                 <br>
                 @endif
-                <button type="submit" class="btn btn-primary px-4">
+                <button type="submit" class="btn auth-btn px-4">
                   {{ __('Login') }}
                 </button>
               </div>

@@ -46,7 +46,7 @@
           <br>
           @endif
           <div class="text-center">
-            {{ Form::submit('Change..',['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Change..',['class'=>'btn upload-btn']) }}
           </div>
           {{ Form::close() }}
         </div>

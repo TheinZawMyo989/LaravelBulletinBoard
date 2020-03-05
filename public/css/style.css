@@ -17,7 +17,7 @@ form-text {
 .fa-trash {
     border: 1px solid red;
     color: red;
-    
+
 }
 
 .fa-pencil:hover {
@@ -139,3 +139,28 @@ input[type="file"] {
 .images {
     border: 1px solid #cccccc;
 }
+
+.news-btn {
+    border: 1px solid green;
+    background-color: white;
+    color: green;
+}
+
+.news-btn:hover {
+    background-color: green;
+    color: white;
+}
+
+.upload-btn,
+.auth-btn {
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+}
+
+.upload-btn:hover,
+.auth-btn:hover {
+    background-color: blue;
+    color: white;
+}
+

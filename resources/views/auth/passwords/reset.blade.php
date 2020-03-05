@@ -54,7 +54,7 @@
 
             <div class="form-group mb-0">
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn auth-btn">
                   {{ __('Reset Password') }}
                 </button>
               </div>

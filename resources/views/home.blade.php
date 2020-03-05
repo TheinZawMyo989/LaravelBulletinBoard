@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-12 text-lg-right">
-          <a href="{{ route('show#createNews') }}" class="btn btn-success">upload news</a>
+          <a href="{{ route('show#createNews') }}" class="btn news-btn">upload news</a>
         </div>
       </div>
       <br>
