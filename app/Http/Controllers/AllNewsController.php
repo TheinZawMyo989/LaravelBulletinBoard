@@ -19,7 +19,7 @@ class AllNewsController extends Controller
 
     public function index()
     {
-        $allNews = $this->newsService->getAllNews();
+        $allNews = $this->newsService->getPublicNews();
         return view('welcome', compact('allNews'));
     }
 }

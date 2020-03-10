@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Model::class, function (Faker $faker) {
     return [
-        'title' => $faker->title,
-        'content' => $faker->content,
-        'user_id' => factory('App\User')->create()->id
+        'title' => $faker->sentence(),
+        'content' => $faker->text(),
+        'user_id' => factory('App\User')->create()->id,
     ];
 });

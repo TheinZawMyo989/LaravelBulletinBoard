@@ -5,6 +5,7 @@ namespace App\Contracts\Dao;
 interface NewsDaoInterface
 {
     public function createNews($request,$insert);
+    public function getPublicNews();
     public function getAllNews();
     public function getNewsById($id);
     public function updateNews($request,$id);

@@ -35,6 +35,16 @@
           @else
           <br>
           @endif
+          <div class="flag">
+            {{ Form::select('public_flag',['public' => 'public','private' => 'private'],!empty($news->public_flag) ? $news->public_flag : '', ['class' => 'form-control w-25']) }}
+            @if ($errors->has('public_flag'))
+            <span class="form-text">
+              <strong>{{ $errors->first('public_flag') }}</strong>
+            </span>
+            @else
+            <br>
+            @endif
+          </div>
           <div class="text-center">
             {{ Form::submit('Update..',['class'=>'btn upload-btn']) }}
           </div>

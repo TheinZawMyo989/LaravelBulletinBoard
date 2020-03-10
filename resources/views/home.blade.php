@@ -28,10 +28,16 @@
                   <th>Content</th>
                   <th>Author</th>
                   <th>Created Time</th>
+                  <th>Type</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                @if($allNews->count() == 0)
+                <tr>
+                  <td colspan="7" class="text-center">No data available!!</td>
+                </tr>
+                @endif
                 @foreach($allNews as $newslist)
                 <tr>
                   <td><img src="{{ asset($newslist->image) }}" alt="image" width="100px" height="100px"></td>
@@ -44,6 +50,9 @@
                     @else
                     {{ Carbon\Carbon::parse($newslist->created_at)->diffForHumans() }}
                     @endif
+                  </td>
+                  <td>
+                    {{ $newslist->public_flag }}
                   </td>
                   <td>
                     @if ($newslist->user_id == auth()->user()->id)

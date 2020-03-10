@@ -48,6 +48,10 @@
             </label>
           </div>
           <hr>
+          <div class="flag">
+            {{ Form::select('public_flag',['public' => 'public','private' => 'private'],'',['class' => 'form-control w-25']) }}
+          </div>
+          <br>
           <div class="text-center">
             {{ Form::submit('Upload..',['class'=>'btn upload-btn']) }}
           </div>

@@ -18,6 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable();
+            $table->enum('public_flag', ['private', 'public']);
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('user_id')->unsigned();

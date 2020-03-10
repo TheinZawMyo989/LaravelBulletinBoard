@@ -18,10 +18,26 @@ class NewsDao implements NewsDaoInterface
         News::insert([
             'title' => $request->title,
             'content' => $request->content,
-            'image' =>$insert,
+            'image' => $insert,
+            'public_flag' => $request->public_flag,
             'created_at' => date('Y-m-d H:i:s'),
             'user_id' => auth()->user()->id,
         ]);
+    }
+
+    /**
+     * all public news
+     *
+     * @return void
+     */
+    public function getPublicNews()
+    {
+        return News::select('news.*', 'users.name')
+            ->join('users', 'news.user_id', 'users.id')
+            ->where('public_flag','public')
+            ->orderBy('news_id', 'desc')
+            ->paginate(6);
+
     }
 
     /**
@@ -35,7 +51,6 @@ class NewsDao implements NewsDaoInterface
             ->join('users', 'news.user_id', 'users.id')
             ->orderBy('news_id', 'desc')
             ->paginate(6);
-
     }
 
     /**
@@ -61,6 +76,7 @@ class NewsDao implements NewsDaoInterface
         News::where('news_id', $id)->update([
             'title' => $request->title,
             'content' => $request->content,
+            'public_flag' => $request->public_flag,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
     }

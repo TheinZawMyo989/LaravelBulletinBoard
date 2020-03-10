@@ -33,7 +33,17 @@ class NewsService implements NewsServiceInterface
     }
 
     /**
-     * All news
+     * All public news
+     *
+     * @return void
+     */
+    public function getPublicNews()
+    {
+        return $this->NewsDao->getPublicNews();
+    }
+
+    /**
+     * all news
      *
      * @return void
      */
