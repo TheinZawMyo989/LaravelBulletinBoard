@@ -38,13 +38,13 @@ class NewsTableSeeder extends Seeder
         // ]
         // ]);
         $faker = \Faker\Factory::create();
-        for ($i = 0; $i <= 100; $i++):
+        for ($i = 0; $i <= 10; $i++):
             $arr = ['private', 'public'];
             DB::table('news')
                 ->insert([
                     'title' => $faker->sentence,
                     'content' => $faker->paragraph,
-                    'image' => null,
+                    'image' => $faker->image('public/storage/images',400,300, null, false), 
                     'public_flag' =>$arr[rand(0, 1)],
                     'created_at' => '2020-02-15 16:59:59',
                     'updated_at' => null,

@@ -16,7 +16,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
         $this->newsService = $newsService;
-        // $this->middleware('auth', ['except' => ['/']]);
     }
 
     /**
@@ -27,7 +26,8 @@ class HomeController extends Controller
     public function panel()
     {
         $allNews = $this->newsService->getAllNews();
-        return view('home', compact('allNews'));
+        $count = $allNews->count();
+        return view('home', compact(['allNews','count']));
     }
 
 }

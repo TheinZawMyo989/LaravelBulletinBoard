@@ -6,7 +6,6 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header text-lg-center">Update News</div>
-
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success" role="alert">
@@ -17,7 +16,6 @@
           <label class="form-label">Title</label>
           <div class="title">
             {{ Form::text('title', !empty($news->title) ? $news->title : '',['class'=>'form-control','placeholder'=>'news title']) }}
-
           </div>
           @if ($errors->has('title'))
           <span class="form-text text-danger">{{ $errors->first('title') }}</span>
@@ -27,9 +25,7 @@
           <label class="form-label">Content</label>
           <div class="content">
             {{ Form::textarea('content',!empty($news->content) ? $news->content : '',['class'=>'form-control','placeholder'=>'news content']) }}
-
           </div>
-
           @if ($errors->has('content'))
           <span class="form-text text-danger">{{ $errors->first('content') }}</span>
           @else
@@ -55,3 +51,16 @@
   </div>
 </div>
 @endsection
+<script>
+  function readURL(input, id) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+ }
+</script>

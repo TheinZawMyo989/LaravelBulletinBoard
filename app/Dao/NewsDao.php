@@ -5,6 +5,7 @@ use App\Contracts\Dao\NewsDaoInterface;
 use App\Models\News;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+
 class NewsDao implements NewsDaoInterface
 {
     /**
@@ -13,7 +14,7 @@ class NewsDao implements NewsDaoInterface
      * @param [type] $request
      * @return void
      */
-    public function createNews($request,$insert)
+    public function createNews($request, $insert)
     {
         News::insert([
             'title' => $request->title,
@@ -34,7 +35,7 @@ class NewsDao implements NewsDaoInterface
     {
         return News::select('news.*', 'users.name')
             ->join('users', 'news.user_id', 'users.id')
-            ->where('public_flag','public')
+            ->where('public_flag', 'public')
             ->orderBy('news_id', 'desc')
             ->paginate(6);
 
@@ -50,6 +51,14 @@ class NewsDao implements NewsDaoInterface
         return News::select('news.*', 'users.name')
             ->join('users', 'news.user_id', 'users.id')
             ->orderBy('news_id', 'desc')
+            ->paginate(6);
+    }
+
+    public function getMyPost(){
+        return News::select('news.*','users.name')
+            ->join('users', 'news.user_id', 'users.id')
+            ->orderBy('news_id', 'desc')
+            ->where('news.user_id',auth()->user()->id)
             ->paginate(6);
     }
 
@@ -95,6 +104,6 @@ class NewsDao implements NewsDaoInterface
     public function changePass($request)
     {
         return User::find(auth()->user()->id)
-             ->update(['password' => Hash::make($request->new_password)]);
+            ->update(['password' => Hash::make($request->new_password)]);
     }
 }

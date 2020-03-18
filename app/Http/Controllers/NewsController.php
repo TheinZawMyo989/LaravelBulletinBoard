@@ -38,15 +38,11 @@ class NewsController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        if ($files = $request->file('fileUpload')) {
-            // $data = $request->input('image');
+        if ($request->file('fileUpload')) {
             $photo = $request->file('fileUpload')->getClientOriginalName();
-            $destination = 'images';
+            $destination = 'storage/images';
             $insert = $request->file('fileUpload')->move($destination, $photo);
         }
-        // $image_file = $request->file('fileUpload');
-        // $image = Image::make($image_file);
-        // Response::make($image->encode('jpeg'));
         $this->newsService->createNews($request, $insert);
         return redirect()->route('home');
     }
@@ -78,9 +74,9 @@ class NewsController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         $this->newsService->updateNews($request, $id);
-        // dd($id);
         return redirect()->route('home');
     }
+    
 
     /**
      * delete news
@@ -92,6 +88,16 @@ class NewsController extends Controller
     {
         $this->newsService->deleteNews($id);
         return redirect()->route('home');
+    }
+
+    /**
+     * My Post
+     *
+     * @return void
+     */
+    public function myPost(){
+        $myPost = $this->newsService->getMyPost();
+        return view('my_post',compact('myPost'));
     }
     /**
      * validate news
@@ -105,12 +111,15 @@ class NewsController extends Controller
         ];
         return Validator::make($request->all(), $rules);
     }
+
+    /**
+     * upnews validate
+     */
     public function upNews(Request $request)
     {
         $rules = [
             'title' => 'required',
             'content' => 'required',
-            // 'fileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
         return Validator::make($request->all(), $rules);
     }

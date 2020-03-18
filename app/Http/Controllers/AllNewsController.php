@@ -13,7 +13,6 @@ class AllNewsController extends Controller
      */
     public function __construct(NewsServiceInterface $newsService)
     {
-        // $this->middleware('auth');
         $this->newsService = $newsService;
     }
 

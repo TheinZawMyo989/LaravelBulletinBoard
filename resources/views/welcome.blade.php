@@ -25,7 +25,6 @@
       <a href="{{ url('/news/home') }}">Home</a>
       @else
       <a href="{{ route('login') }}">Login</a>
-
       @if (Route::has('register'))
       <a href="{{ route('register') }}">Register</a>
       @endif
@@ -58,11 +57,10 @@
             <h5>{{ $newsList->title }}</h5>
             <img src="{{ asset($newsList->image) }}" alt="News Photo" class="images" width="100%" height="200px">
             <br>
-            <p class="collapse" id="collapse{{$newsList->news_id}}">{{ $newsList->content }}</p>
-            <a href="#" data-toggle="collapse" data-target="#collapse{{$newsList->news_id}}">Read more..</a>
+            <p class="collapse" id="collapse{{ $newsList->news_id }}">{{ $newsList->content }}</p>
+            <a href="#" data-toggle="collapse" data-target="#collapse{{ $newsList->news_id }}">Read more..</a>
           </div>
         </div>
-
       </div>
       @endforeach
     </div> <br>

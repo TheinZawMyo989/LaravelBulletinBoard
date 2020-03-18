@@ -26,9 +26,9 @@ class NewsService implements NewsServiceInterface
      * @param Request $request
      * @return void
      */
-    public function createNews($request,$insert)
+    public function createNews($request, $insert)
     {
-        return $this->NewsDao->createNews($request,$insert);
+        return $this->NewsDao->createNews($request, $insert);
 
     }
 
@@ -40,6 +40,11 @@ class NewsService implements NewsServiceInterface
     public function getPublicNews()
     {
         return $this->NewsDao->getPublicNews();
+    }
+
+    public function getMyPost()
+    {
+        return $this->NewsDao->getMyPost();
     }
 
     /**
@@ -67,11 +72,10 @@ class NewsService implements NewsServiceInterface
      * update news
      */
 
-    public function updateNews($request,$id)
+    public function updateNews($request, $id)
     {
-        return $this->NewsDao->updateNews($request,$id);
+        return $this->NewsDao->updateNews($request, $id);
     }
-
 
     /**
      * delete news
@@ -94,7 +98,5 @@ class NewsService implements NewsServiceInterface
     {
         return $this->NewsDao->changePass($request);
     }
-
-
 
 }

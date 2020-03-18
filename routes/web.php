@@ -21,14 +21,16 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/home', 'HomeController@panel')->name('home');
     Route::get('/create', 'NewsController@showCreateNews')->name('show#createNews');
     Route::post('/create', 'NewsController@createNews')->name('create#news');
-    Route::get('/edit/{id}', 'NewsController@showEdit');
+    Route::get('/edit/{id}/', 'NewsController@showEdit');
     Route::get('/delete/{id}', 'NewsController@deleteNews')->name('delete#news');
     Route::patch('/update/{id}', 'NewsController@updateNews');
 });
 
-Route::group(['prefix'=>'password'],function(){
-    Route::get('/change','PasswordController@changeView')->name('change#view');
-    Route::post('/change','PasswordController@changePassword')->name('change#password');
+Route::group(['prefix' => 'password'], function () {
+    Route::get('/change', 'PasswordController@changeView')->name('change#view');
+    Route::post('/change', 'PasswordController@changePassword')->name('change#password');
 });
 
-
+Route::group(['prefix' => 'my'], function () {
+    Route::get('/post', 'NewsController@myPost')->name('my#posts');
+});

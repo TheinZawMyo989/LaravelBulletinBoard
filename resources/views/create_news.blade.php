@@ -6,7 +6,6 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header text-lg-center">Upload News</div>
-
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success" role="alert">
@@ -36,7 +35,6 @@
           <div class="image">
             <input id="file-upload" type="file" name="fileUpload" accept="image/*" onchange="readURL(this);">
             <label for="file-upload" id="file-drag">
-              {{-- <img id="file-image" src="#" alt="Preview" class="hidden" width="200px" height="200px"> --}}
               <div id="start">
                 <img id="blah" width="300px" height="150px" />
                 <div>Select a file here</div>

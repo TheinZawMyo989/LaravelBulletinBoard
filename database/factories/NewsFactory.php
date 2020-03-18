@@ -10,5 +10,6 @@ $factory->define(Model::class, function (Faker $faker) {
         'title' => $faker->sentence(),
         'content' => $faker->text(),
         'user_id' => factory('App\User')->create()->id,
+        'image' => $faker->image('public/storage/images',400,300, null, false),
     ];
 });

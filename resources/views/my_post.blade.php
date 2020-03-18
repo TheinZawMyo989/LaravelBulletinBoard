@@ -4,15 +4,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-12 text-lg-right">
-          <a href="{{ route('show#createNews') }}" class="btn news-btn">upload news</a>
-        </div>
-      </div>
       <br>
       <div class="card">
-        <div class="card-header">All News List <span class="badge badge-secondary p-2 float-right"> {{ $count }} posts
-            per page</span></div>
+        <div class="card-header">My News List <span class="badge badge-secondary p-2 float-right">
+            {{ $myPost->count() }} posts per page</span></div>
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success" role="alert">
@@ -33,12 +28,12 @@
                 </tr>
               </thead>
               <tbody>
-                @if($allNews->count() == 0)
+                @if($myPost->count() == 0)
                 <tr>
                   <td colspan="7" class="text-center">No data available!!</td>
                 </tr>
                 @endif
-                @foreach($allNews as $newsList)
+                @foreach($myPost as $newsList)
                 <tr>
                   <td><img src="{{ asset($newsList->image) }}" alt="image" width="100px" height="100px"></td>
                   <td>{{ $newsList->title }}</td>
@@ -69,7 +64,7 @@
                 @endforeach
               </tbody>
             </table>
-            {{ $allNews->links() }}
+            {{ $myPost->links() }}
           </div>
         </div>
       </div>
