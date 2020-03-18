@@ -16,7 +16,7 @@
           'class'=>'uploader','id'=>'file-upload-form'])}}
           <label class="form-label">Title</label>
           <div class="title">
-            {{ Form::text('title', null,['class'=>'form-control','placeholder'=>'news title']) }}
+            {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter news title']) }}
           </div>
           @if ($errors->has('title'))
           <span class="form-text text-danger">{{ $errors->first('title') }}</span>
@@ -25,7 +25,7 @@
           @endif
           <label class="form-label">Content</label>
           <div class="content">
-            {{ Form::textarea('content',null,['class'=>'form-control','placeholder'=>'news content']) }}
+            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter news content']) }}
           </div>
           @if ($errors->has('content'))
           <span class="form-text text-danger">{{ $errors->first('content') }}</span>

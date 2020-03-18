@@ -15,7 +15,12 @@
           {{ Form::open(['url' => ['/news/update', $news->news_id ] , 'method' => 'PATCH']) }}
           <label class="form-label">Title</label>
           <div class="title">
-            {{ Form::text('title', !empty($news->title) ? $news->title : '',['class'=>'form-control','placeholder'=>'news title']) }}
+            @if ($errors->has('title'))
+            {{ Form::text('title', null, array('placeholder' => 'Enter news title', 'class' => 'form-check-input','class' => 'form-control')) }}
+            @else
+            {{ Form::text('title', !empty($news->title) ? $news->title : '', ['class' => 'form-control', 'placeholder' => 'Enter news title']) }}
+            @endif
+
           </div>
           @if ($errors->has('title'))
           <span class="form-text text-danger">{{ $errors->first('title') }}</span>
@@ -24,7 +29,11 @@
           @endif
           <label class="form-label">Content</label>
           <div class="content">
-            {{ Form::textarea('content',!empty($news->content) ? $news->content : '',['class'=>'form-control','placeholder'=>'news content']) }}
+            @if($errors->has('content'))
+            {{ Form::textarea('content', null,['class' => 'form-control', 'placeholder' => 'Enter news content']) }}
+            @else
+            {{ Form::textarea('content',!empty($news->content) ? $news->content : '',['class'=>'form-control','placeholder'=>'Enter news content']) }}
+            @endif
           </div>
           @if ($errors->has('content'))
           <span class="form-text text-danger">{{ $errors->first('content') }}</span>
