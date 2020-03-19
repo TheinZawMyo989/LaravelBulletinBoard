@@ -42,9 +42,19 @@ class NewsService implements NewsServiceInterface
         return $this->NewsDao->getPublicNews();
     }
 
+    public function getNewsCount()
+    {
+        return $this->NewsDao->getNewsCount();
+    }
+
     public function getMyPost()
     {
         return $this->NewsDao->getMyPost();
+    }
+
+    public function getMyPostCount()
+    {
+        return $this->NewsDao->getMyPostCount();
     }
 
     /**

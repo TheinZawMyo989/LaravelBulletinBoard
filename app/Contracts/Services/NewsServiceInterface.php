@@ -12,6 +12,8 @@ interface NewsServiceInterface
     public function deleteNews($id);
     public function changePass($request);
     public function getMyPost();
+    public function getNewsCount();
+    public function getMyPostCount();
 }
 
 ?>

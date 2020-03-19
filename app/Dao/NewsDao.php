@@ -40,6 +40,10 @@ class NewsDao implements NewsDaoInterface
             ->paginate(6);
 
     }
+    public function getNewsCount()
+    {
+        return News::count();
+    }
 
     /**
      * all news
@@ -54,12 +58,21 @@ class NewsDao implements NewsDaoInterface
             ->paginate(6);
     }
 
-    public function getMyPost(){
-        return News::select('news.*','users.name')
+    public function getMyPost()
+    {
+        return News::select('news.*', 'users.name')
             ->join('users', 'news.user_id', 'users.id')
             ->orderBy('news_id', 'desc')
-            ->where('news.user_id',auth()->user()->id)
+            ->where('news.user_id', auth()->user()->id)
             ->paginate(6);
+    }
+
+    public function getMyPostCount()
+    {
+        return News::select('news.*')
+            ->join('users', 'news.user_id', 'users.id')
+            ->where('news.user_id', auth()->user()->id)
+            ->count();
     }
 
     /**

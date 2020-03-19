@@ -7,7 +7,7 @@
       <br>
       <div class="card">
         <div class="card-header">My News List <span class="badge badge-secondary p-2 float-right">
-            {{ $myPost->count() }} posts per page</span></div>
+            {{ $count }} posts</span></div>
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success" role="alert">

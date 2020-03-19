@@ -11,8 +11,7 @@
       </div>
       <br>
       <div class="card">
-        <div class="card-header">All News List <span class="badge badge-secondary p-2 float-right"> {{ $count }} posts
-            per page</span></div>
+        <div class="card-header">All News List <span class="badge badge-secondary p-2 float-right"> {{ $count }} posts </span></div>
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success" role="alert">

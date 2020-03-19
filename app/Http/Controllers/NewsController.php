@@ -97,7 +97,8 @@ class NewsController extends Controller
      */
     public function myPost(){
         $myPost = $this->newsService->getMyPost();
-        return view('my_post',compact('myPost'));
+        $count = $this->newsService->getMyPostCount();
+        return view('my_post',compact(['myPost','count']));
     }
     /**
      * validate news

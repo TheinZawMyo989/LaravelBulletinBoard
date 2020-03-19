@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function panel()
     {
         $allNews = $this->newsService->getAllNews();
-        $count = $allNews->count();
+        $count = $this->newsService->getNewsCount();
         return view('home', compact(['allNews','count']));
     }
 
