@@ -36,6 +36,7 @@
     <h1>News Channel</h1>
     @if($allNews->count() == 0)
     <h1 class="text-center h-50 p-5 mt-5">Public News Unavailable!!</h1>
+    <p class="text-center">Register to see more ..</p>
     @endif
     <div class="row">
       @foreach ($allNews as $newsList)
@@ -66,6 +67,7 @@
     </div> <br>
     {{ $allNews->links() }}
   </div>
+  
 </body>
 
 </html>
