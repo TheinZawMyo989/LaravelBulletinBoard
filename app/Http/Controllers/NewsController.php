@@ -76,7 +76,6 @@ class NewsController extends Controller
         $this->newsService->updateNews($request, $id);
         return redirect()->route('home');
     }
-    
 
     /**
      * delete news
@@ -95,10 +94,11 @@ class NewsController extends Controller
      *
      * @return void
      */
-    public function myPost(){
+    public function myPost()
+    {
         $myPost = $this->newsService->getMyPost();
         $count = $this->newsService->getMyPostCount();
-        return view('my_post',compact(['myPost','count']));
+        return view('my_post', compact(['myPost', 'count']));
     }
     /**
      * validate news

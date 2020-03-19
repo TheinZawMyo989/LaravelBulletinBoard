@@ -44,8 +44,8 @@ class NewsTableSeeder extends Seeder
                 ->insert([
                     'title' => $faker->sentence,
                     'content' => $faker->paragraph,
-                    'image' => 'storage/images/laravel.jpg', 
-                    'public_flag' =>$arr[rand(0, 1)],
+                    'image' => 'storage/images/laravel.jpg',
+                    'public_flag' => $arr[rand(0, 1)],
                     'created_at' => '2020-02-15 16:59:59',
                     'updated_at' => null,
                     'user_id' => factory('App\User')->create()->id,
